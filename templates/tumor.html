@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102190693-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-102190693-1');
+    </script>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+        integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>BRATS</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="../static/vendor/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../static/vendor/simple-line-icons/css/simple-line-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="../static/device-mockups/device-mockups.css">
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/new-age.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="..">Back to Upload Page</a>
+        </div>
+    </nav>
+
+    <header class="masthead">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-lg-4 my-auto">
+                    <h3>{{message}}</h3>
+                    <div class="container">
+                        <img src= {{flair}} class="img-responsive" alt="content" style="height: auto; width: 50%">
+                        <label>Tumor (flair MRI)</label>
+                    </div>
+                </div>
+                <div class="col-lg-4 my-auto">
+                    <div class="container">
+                        <img src= {{overall}} class="img-responsive" alt="content" style="height: auto; width: 50%">
+                        <label>Overall</label>
+                    </div>
+                </div>
+                <div class="col-lg-4 my-auto ">
+                    <div class="container">
+                        <img src= {{core}} class="img-responsive" alt="style" style="height: auto; width: 50%">
+                        <label>Core</label>
+                    </div>
+                </div>
+                <div class="col-lg-4 my-auto ">
+                    <div class="container">
+                        <img src= {{et}} class="img-responsive" style="height: auto; width: 50%" alt="result">
+                        <label>ET</label>
+                    </div>
+                </div>
+                <div class="col-lg-4 my-auto ">
+                    <div class="container">
+                        <img src= {{full}} class="img-responsive" style="height: auto; width: 50%" alt="result">
+                        <label>Full</label>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </header>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../static/vendor/jquery/jquery.min.js "></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="../static/vendor/jquery-easing/jquery.easing.min.js "></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../static/js/new-age.js "></script>
+</body>
+
+
+</html>

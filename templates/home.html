@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="en" style="overflow: hidden;">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102190693-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-102190693-1');
+    </script>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+        integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>BRATS</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="../static/vendor/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../static/vendor/simple-line-icons/css/simple-line-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="../static/device-mockups/device-mockups.css">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/new-age.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top" style="overflow: hidden;">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <p>Brain Tumor Detection and Segmentation</p>
+        </div>
+    </nav>
+
+    <header class="masthead">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-lg-7 my-auto">
+                    <div id="loading" style="text-align: center">
+                        <h3>Will take a moment to load. </h3>
+                    </div>
+                    <div class="header-content mx-auto" id="content">
+                        <form action="{{ url_for('upload_npz') }}" name="npz_form" onsubmit="return loading_npz()" method=post enctype=multipart/form-data>
+                            <p>Upload Compressed MRI (npz) file</p>
+                            <hr>
+                            <input type=file class="btn btn-outline btn-xl" name="npz-file" required>
+                            <input type=submit class="btn btn-outline btn-xl" data-loading-text="Loading..." value="Upload">
+                        </form>
+                        <hr>
+                        <p>OR</p>
+                        <hr>
+                        <form action="{{ url_for('upload_nii') }}" name="img_form" onsubmit="return loading_img()" method=post enctype=multipart/form-data>
+                            <p>Upload FLAIR nii file</p>
+                            <input type=file class="btn btn-outline btn-xl" name="flair-file" required>
+                            <p>Upload T1ce nii file</p>
+                            <input type=file class="btn btn-outline btn-xl" name="t1ce-file" required>
+                            <p>Upload T1 nii file</p>
+                            <input type=file class="btn btn-outline btn-xl" name="t1-file" required>
+                            <p>Upload T2 nii file</p>
+                            <input type=file class="btn btn-outline btn-xl" name="t2-file" required>
+                            <input type=submit class="btn btn-outline btn-xl" data-loading-text="Loading..." value="Upload">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../static/vendor/jquery/jquery.min.js "></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="../static/vendor/jquery-easing/jquery.easing.min.js "></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../static/js/new-age.js "></script>
+    <script type="text/javascript">
+        function loading_npz(){
+            var npz = document.forms["npz_form"]["npz-file"].value;
+            if(npz != ""){
+                $("#loading").show();
+                $("#content").hide();
+                return true;
+            }
+            return false;
+        }
+        function loading_img(){
+            var flair = document.forms["img_form"]["flair-file"].value;
+            var t1ce = document.forms["img_form"]["t1ce-file"].value;
+            var t1 = document.forms["img_form"]["t1-file"].value;
+            var t2 = document.forms["img_form"]["t2-file"].value;
+            if(flair != "" && t1ce != "" && t1 != "" && t2 != ""){
+                $("#loading").show();
+                $("#content").hide();
+                return true;
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>
